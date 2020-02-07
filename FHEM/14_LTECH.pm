@@ -67,6 +67,22 @@ LTECH_Parse($$)
 	my $name = $iohash->{NAME};
 	my @a = split("", $msg);
 	Log3 $iohash, 4, "$name LTECH_Parse: incomming $msg";
+  Log3 $iohash, 4, "$name LTECH_Parse: rawData $rawData";
+  
+  my $id=substr($rawData,0,8);
+  my $bus=substr($rawData,8,2);
+  my $color=substr($rawData,10,6);
+  my $mode=substr($rawData,16,2); #80 on ; 82 dim; 00 off
+  my $dim=substr($rawData,18,2);
+  my $crc=substr($rawData,22,4);
+
+  Log3 $iohash, 4, "$name LTECH_Parse: ID $id";
+  Log3 $iohash, 4, "$name LTECH_Parse: Bus $bus";
+  Log3 $iohash, 4, "$name LTECH_Parse: Color $color";
+  Log3 $iohash, 4, "$name LTECH_Parse: Mode $mode";
+  Log3 $iohash, 4, "$name LTECH_Parse: Dimming $dim";
+  Log3 $iohash, 4, "$name LTECH_Parse: CRC $crc";
+  
   return $name;
 }
 
