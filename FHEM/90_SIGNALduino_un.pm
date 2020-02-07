@@ -29,6 +29,8 @@ SIGNALduino_un_Initialize($)
   $hash->{AttrFn}    = "SIGNALduino_un_Attr";
   $hash->{SetFn}     = "SIGNALduino_un_Set";
   $hash->{ParseFn}   = "SIGNALduino_un_Parse";
+
+  
   $hash->{AttrList}  = "IODev do_not_notify:0,1 stateFormat showtime:0,1 ignore:0,1 ".$readingFnAttributes;
 }
 
