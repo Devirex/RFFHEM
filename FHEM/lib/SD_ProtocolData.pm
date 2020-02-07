@@ -2524,6 +2524,20 @@ package lib::SD_ProtocolData;
 				method          => \&main::SIGNALduino_GROTHE,
 			},
 
+		 "97"  =>
+                        {
+                                name            => 'LTECH M4-5A',
+                                id              => '97',
+                                one             => [2,-0.9],
+                                zero            => [1,-1.8],
+                                start           => [1,-0.9, 1,-0.9, 1,-3.8],
+                                preSync         => [1,-0.9, 1,-0.9, 1,-0.9, 1,-0.9, 1,-0.9, 1,-0.9, 1,-0.9, 1,-0.9],
+                                end             => [3.8, -51],
+                                clockabs        => 315,
+                                format          => 'twostate',
+                                preamble        => 'P97#',
+                        },
+
 		########################################################################
 		#### ### old information from incomplete implemented protocols #### ####
 

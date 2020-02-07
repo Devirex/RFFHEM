@@ -10,7 +10,7 @@ use warnings;
 sub LTECH_Initialize($) {
 	my ($hash) = @_;
 
-	$hash->{Match}     = "^P97#[A-Fa-f0-9]+";    ## pos 7 ist aktuell immer 0xF
+	$hash->{Match}     = "^P97#[A-Fa-f0-9]+";   
 	$hash->{DefFn}     = "LTECH_Define";
 	$hash->{UndefFn}   = "LTECH_Undef";
 	$hash->{ParseFn}   = "LTECH_Parse";
@@ -33,7 +33,7 @@ LTECH_Define($$)
 
 	my $a = int(@a);
 	#print "a0 = $a[0]";
-  return "wrong syntax: define <name> Hideki <code>".int(@a)
+  return "wrong syntax: define <name> LTECH <code>".int(@a)
 		if(int(@a) < 3);
 
   $hash->{CODE}    = $a[2];
@@ -61,13 +61,13 @@ LTECH_Undef($$)
 sub
 LTECH_Parse($$)
 {
-    my ($iohash,$msg) = @_;
+  my ($iohash,$msg) = @_;
 	my (undef ,$rawData) = split("#",$msg);
 
 	my $name = $iohash->{NAME};
 	my @a = split("", $msg);
 	Log3 $iohash, 4, "$name LTECH_Parse: incomming $msg";
-    return $name;
+  return $name;
 }
 
 #####################################
@@ -86,3 +86,34 @@ LTECH_Attr(@)
   $modules{LTECH}{defptr}{$iohash->{NAME} . "." . $cde} = $hash;
   return undef;
 }
+
+1;
+
+=pod
+=item summary    Supports various rf sensors with hideki protocol
+=item summary_DE Unterst&uumltzt verschiedenen Funksensoren mit hideki Protokol
+=begin html
+
+<a name="LTECH"></a>
+<h3>LTECH</h3>
+<ul>
+  The LTECH module is a module for decoding LTECH LED controller remote controls, which use the LTECH protocol.
+  <br><br>
+</ul>
+
+=end html
+
+=begin html_DE
+
+<a name="LTECH"></a>
+<h3>LTECH</h3>
+<ul>
+  Das LTECH module dekodiert empfangene Nachrichten von LTECH LED Controller Fernbedienungen, welche das LTECH Protokoll verwenden. 
+  <br><br>
+  
+
+</ul>
+
+=end html_DE
+=cut
+

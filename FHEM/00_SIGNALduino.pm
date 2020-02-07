@@ -191,6 +191,7 @@ my $clientsSIGNALduino = ":IT:"
 						."CUL_TX:"
 						."SD_AS:"
 						."Hideki:"
+						."LTECH:"
 						."SD_WS07:"
 						."SD_WS09:"
 						." :"					# Zeilenumbruch
@@ -226,6 +227,7 @@ my %matchListSIGNALduino = (
 			"6:SD_AS"							=> "^P2#[A-Fa-f0-9]{7,8}",								# Arduino based Sensors, should not be default
 			"4:OREGON"						=> "^(3[8-9A-F]|[4-6][0-9A-F]|7[0-8]).*",
 			"7:Hideki"						=> "^P12#75[A-F0-9]+",
+			"8:LTECH"						=> "^P97#[A-Fa-f0-9]+",
 			"9:CUL_FHTTK"					=> "^T[A-F0-9]{8}",
 			"10:SD_WS07"					=> "^P7#[A-Fa-f0-9]{6}[AFaf][A-Fa-f0-9]{2,3}",
 			"11:SD_WS09"					=> "^P9#F[A-Fa-f0-9]+",
